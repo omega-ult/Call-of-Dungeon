@@ -165,6 +165,10 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\LuaModule\GameLogic.h" />
     <ClInclude Include="..\Classes\LuaModule\LuaModule.h" />
+    <ClInclude Include="..\Classes\LuaModule\Monster.h" />
+    <ClInclude Include="..\Classes\LuaModule\Player.h" />
+    <ClInclude Include="..\Classes\LuaModule\PlayerHUD.h" />
+    <ClInclude Include="..\Classes\LuaModule\StageMap.h" />
     <ClInclude Include="..\Classes\LuaModule\test.h" />
     <ClInclude Include="..\Classes\Predeclare.h" />
     <ClInclude Include="..\Classes\Singleton.h" />

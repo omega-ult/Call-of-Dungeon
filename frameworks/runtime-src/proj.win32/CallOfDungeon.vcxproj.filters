@@ -37,6 +37,18 @@
     <ClInclude Include="..\Classes\Singleton.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\LuaModule\StageMap.h">
+      <Filter>LuaModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LuaModule\Player.h">
+      <Filter>LuaModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LuaModule\PlayerHUD.h">
+      <Filter>LuaModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LuaModule\Monster.h">
+      <Filter>LuaModule</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
