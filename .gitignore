@@ -77,6 +77,9 @@ build/
 *.log
 *.scc
 
+*.tlog
+*.unsuccessfulbuild
+
 # Visual C++ cache files
 ipch/
 *.aps
@@ -212,3 +215,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+*.idb
+*.lastbuildstate
+*.res
+*.lib

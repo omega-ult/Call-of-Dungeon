@@ -49,6 +49,9 @@
     <ClInclude Include="..\Classes\LuaModule\Monster.h">
       <Filter>LuaModule</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\GameClient.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
