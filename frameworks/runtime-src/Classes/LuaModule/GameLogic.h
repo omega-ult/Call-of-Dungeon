@@ -6,7 +6,6 @@
 #include "cocos2d.h"
 #include "Singleton.h"
 
-#include "GameClient.h"
 
 USING_NS_CC;
 

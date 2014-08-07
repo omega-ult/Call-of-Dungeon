@@ -179,6 +179,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\LuaModule\GameLogic.cpp" />
     <ClCompile Include="..\Classes\LuaModule\LuaModule.cpp" />
+    <ClCompile Include="..\Classes\struct.c" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

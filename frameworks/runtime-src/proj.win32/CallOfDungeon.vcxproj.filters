@@ -63,6 +63,9 @@
     <ClCompile Include="..\Classes\LuaModule\GameLogic.cpp">
       <Filter>LuaModule</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\struct.c">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
