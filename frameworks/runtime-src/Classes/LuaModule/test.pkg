@@ -1,6 +1,0 @@
-class Doney
-{
-Doney();
-static int getUserndex(){return 10;}
-int getUserKey(){return 20;}
-};

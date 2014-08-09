@@ -164,12 +164,12 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\LuaModule\GameLogic.h" />
+    <ClInclude Include="..\Classes\LuaModule\GameLogin.h" />
     <ClInclude Include="..\Classes\LuaModule\LuaModule.h" />
     <ClInclude Include="..\Classes\LuaModule\Monster.h" />
     <ClInclude Include="..\Classes\LuaModule\Player.h" />
     <ClInclude Include="..\Classes\LuaModule\PlayerHUD.h" />
     <ClInclude Include="..\Classes\LuaModule\StageMap.h" />
-    <ClInclude Include="..\Classes\LuaModule\test.h" />
     <ClInclude Include="..\Classes\Predeclare.h" />
     <ClInclude Include="..\Classes\Singleton.h" />
     <ClInclude Include="main.h" />
@@ -178,6 +178,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\LuaModule\GameLogic.cpp" />
+    <ClCompile Include="..\Classes\LuaModule\GameLogin.cpp" />
     <ClCompile Include="..\Classes\LuaModule\LuaModule.cpp" />
     <ClCompile Include="..\Classes\struct.c" />
     <ClCompile Include="main.cpp" />
@@ -225,8 +226,8 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Classes\LuaModule\GameLogic.pkg" />
+    <None Include="..\Classes\LuaModule\GameLogin.pkg" />
     <None Include="..\Classes\LuaModule\LuaModule.pkg" />
-    <None Include="..\Classes\LuaModule\test.pkg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

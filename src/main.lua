@@ -45,15 +45,13 @@ local function main()
     if (cc.PLATFORM_OS_IPHONE == targetPlatform) or (cc.PLATFORM_OS_IPAD == targetPlatform) or 
        (cc.PLATFORM_OS_ANDROID == targetPlatform) or (cc.PLATFORM_OS_WINDOWS == targetPlatform) or
        (cc.PLATFORM_OS_MAC == targetPlatform) then
-        cclog("result is ")
 		--require('debugger')()
         
     end
 
     ------------------------------------------------------------------------------------------------------------------------------
-    require "hello2"
+
     require "CoDGameLogic"
-    --cclog("result is " .. myadd(6, 1))
     ------------------------------------------------------------------------------------------------------------------------------
 
     ---------------
@@ -234,15 +232,15 @@ local function main()
     ]]
 
     -- run
-    local sceneGame = cc.Scene:create()
-    sceneGame:addChild(createLayerFarm())
-    sceneGame:addChild(createLayerMenu())
-	
-	if cc.Director:getInstance():getRunningScene() then
-		cc.Director:getInstance():replaceScene(sceneGame)
-	else
-		cc.Director:getInstance():runWithScene(sceneGame)
-	end
+    --local sceneGame = cc.Scene:create()
+    --sceneGame:addChild(createLayerFarm())
+    --sceneGame:addChild(createLayerMenu())
+	--
+	--if cc.Director:getInstance():getRunningScene() then
+	--	cc.Director:getInstance():replaceScene(sceneGame)
+	--else
+	--	cc.Director:getInstance():runWithScene(sceneGame)
+	--end
 
 end
 

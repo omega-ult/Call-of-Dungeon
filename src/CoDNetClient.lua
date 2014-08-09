@@ -8,11 +8,13 @@ local struct = require 'struct'
 require 'bit'
 
 
+
 CoDNetClient = {
 	NET_STATE_STOP = 0,				--# state: init value
 	NET_STATE_CONNECTING = 1,		--# state: connecting
 	NET_STATE_ESTABLISHED = 2,		--# state: connected
 	NET_MSG_HEADER_SIZE = 2,
+	NET_MSG_PACK_HEADER = '<H'
 }
 
 function CoDNetClient:new()
@@ -43,11 +45,10 @@ function CoDNetClient:_tryConnect()
 		return 1
 	end
 	if self._state == CoDNetClient.NET_STATE_CONNECTING then
-		--cclog('nnnnn')
 		local _rcv, _wrt, _msg = socket.select({self._sock}, {self._sock}, 0)
-		if #_rcv ~= 0 and #_wrt ~= 0 then
+		if #_rcv ~= 0 then
+			cclog('server connected')
 			self._state = CoDNetClient.NET_STATE_ESTABLISHED
-			self._sock:setoption('tcp-nodelay', true)
 			self._sock:setoption('keepalive', true)
 		end
 	end
@@ -67,34 +68,37 @@ function CoDNetClient:_tryRecv()
 	if self._state ~= CoDNetClient.NET_STATE_ESTABLISHED then
 		return -1
 	end
-	local _text, _err = self._sock:receive('5')
+	local _recvCount = 0
+	local _text, _err = self._sock:receive('1')
 	if _text == nil then
 		if _err == 'closed' then
 			self:close()
 		end
 		return -1
+	else -- there are still many bytes in the buf, take them all
+		repeat
+			self._recvBuf = self._recvBuf.._text
+			_recvCount = _recvCount + 1
+			_text = self._sock:receive('1')
+		until _text == nil
 	end
-	self._recvBuf = self._recvBuf.._text
-	-- debug
-	if string.len(self._recvBuf) > 0 then
-		cclog('ddoo'..#self._recvBuf)
-	end
-	return #_text
+	return _recvCount
 end
 
 --# send data from send_buf until block (reached system buffer limit)
 function CoDNetClient:_trySend()
 	if string.len(self._sendBuf) == 0 then
-		return
+		return 0
 	end
 	local _wsize, _err = self._sock:send(self._sendBuf)
-	if _text == nil then
+	--_wsize = _wsize or 0
+	if _wsize == nil then
 		if _err == 'closed' then
 			self:close()
 		end
 		return -1
 	end
-	--_wsize = _wsize or 0
+	self._sendBuf = string.sub(self._sendBuf, _wsize + 1, #self._sendBuf)
 	return _wsize 
 end
 
@@ -117,34 +121,35 @@ end
 --# append data to send_buf then try to send it out (__trySend)
 function CoDNetClient:_sendRaw(data)
 	self._sendBuf = self._sendBuf..data
-	self.process()
+	self:process()
 	return 0
 end
 
 --# peek data from recv_buf (read without delete it)
 function CoDNetClient:_peekRaw(size)
-	self.process()
+	self:process()
 	if #self._recvBuf == 0 then
 		return ''
 	end
 	if size > #self._recvBuf then
 		size = #self._recvBuf
 	end
-	local _rdata = string.gsub(self._recvBuf, 1, size)
+	local _rdata = string.sub(self._recvBuf, 1, size)
+	--cclog('rdata'..#_rdata)
 	return _rdata
 end
 
 --# read data from recv_buf (read and delete it from recv_buf)
 function CoDNetClient:_recvRaw(size)
 	local _rdata = self:_peekRaw(size)
-	self._recvBuf = string.sub(#_rdata, #self._recvBuf)
+	self._recvBuf = string.sub(self._recvBuf, #_rdata+1, #self._recvBuf)
 	return _rdata
 end
 
 --# append data into send_buf with a size header
 function CoDNetClient:send(data)
 	local _size = #data + CoDNetClient.NET_MSG_HEADER_SIZE -- two byte for category
-	local _head = struct.pack('<H', _size)
+	local _head = struct.pack(CoDNetClient.NET_MSG_PACK_HEADER, _size)
 	self:_sendRaw(_head..data)
 	return 0
 end
@@ -154,9 +159,18 @@ function CoDNetClient:recv()
 	if #_head < CoDNetClient.NET_MSG_HEADER_SIZE then
 		return ''
 	end
-	local _packSize = struct.unpack('<H', _head)
+	local _packSize = struct.unpack(CoDNetClient.NET_MSG_PACK_HEADER, _head)
+	if _packSize > #self._recvBuf then
+		return ''
+	end
 	self:_recvRaw(CoDNetClient.NET_MSG_HEADER_SIZE)
 	return self:_recvRaw(_packSize - CoDNetClient.NET_MSG_HEADER_SIZE)
+end
+
+function CoDNetClient:noDelay(flag)
+	if self._sock ~= nil then
+		self._sock:setoption('tcp-nodelay', flag)
+	end
 end
 
 function CoDNetClient:getStatus()

@@ -22,9 +22,6 @@
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="..\Classes\LuaModule\test.h">
-      <Filter>LuaModule</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\LuaModule\LuaModule.h">
       <Filter>LuaModule</Filter>
     </ClInclude>
@@ -49,6 +46,9 @@
     <ClInclude Include="..\Classes\LuaModule\Monster.h">
       <Filter>LuaModule</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\LuaModule\GameLogin.h">
+      <Filter>LuaModule</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
@@ -66,6 +66,9 @@
     <ClCompile Include="..\Classes\struct.c">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\LuaModule\GameLogin.cpp">
+      <Filter>LuaModule</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
@@ -79,10 +82,10 @@
     <None Include="..\Classes\LuaModule\LuaModule.pkg">
       <Filter>LuaModule</Filter>
     </None>
-    <None Include="..\Classes\LuaModule\test.pkg">
+    <None Include="..\Classes\LuaModule\GameLogic.pkg">
       <Filter>LuaModule</Filter>
     </None>
-    <None Include="..\Classes\LuaModule\GameLogic.pkg">
+    <None Include="..\Classes\LuaModule\GameLogin.pkg">
       <Filter>LuaModule</Filter>
     </None>
   </ItemGroup>

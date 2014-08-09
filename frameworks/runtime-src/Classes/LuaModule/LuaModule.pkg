@@ -1,7 +1,7 @@
 $#include "LuaModule.h"
 
-$#include "Test.h"
 $#include "GameLogic.h"
+$#include "GameLogin.h"
 
-$pfile "Test.pkg"
 $pfile "GameLogic.pkg"
+$pfile "GameLogin.pkg"

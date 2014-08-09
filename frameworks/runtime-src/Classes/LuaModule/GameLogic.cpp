@@ -15,18 +15,3 @@ void GameLogic::initialize()
 {
 
 }
-
-void GameLogic::update()
-{
-
-}
-
-void GameLogic::shutdown()
-{
-
-}
-
-GameLogic* GameLogic::getInstance()
-{
-	return GameLogic::getSingletonPtr();
-}

@@ -1,5 +1,0 @@
-class GameLogic
-{
-static GameLogic*	getInstance();
-int boooooo();
-};

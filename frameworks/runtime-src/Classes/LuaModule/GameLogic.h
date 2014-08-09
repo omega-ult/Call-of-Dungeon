@@ -9,23 +9,18 @@
 
 USING_NS_CC;
 
-class GameLogic : public Singleton<GameLogic>
+
+class GameLogic
 {
 public:
 	GameLogic();
 	virtual ~GameLogic();
 
+
+
 	void	initialize();
 
-	int boooooo() { return 100; }
-
-	void	update();
-
-	void	shutdown();
-
-	static GameLogic*	getInstance();
 private:
-
 };
 
 
