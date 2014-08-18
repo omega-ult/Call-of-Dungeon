@@ -5,11 +5,6 @@
 
 #include "struct.c"
 
-#include "LuaModule.h"
-
-#include "GameLogic.h"
-
-
 
 using namespace CocosDenshion;
 
@@ -18,19 +13,17 @@ using namespace std;
 
 AppDelegate::AppDelegate()
 {
-	mGameLogic = new GameLogic();
 }
 
 AppDelegate::~AppDelegate()
 {
     SimpleAudioEngine::end();
-	delete mGameLogic;
 }
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
     auto engine = LuaEngine::getInstance();
-	tolua_LuaModule_open(engine->getLuaStack()->getLuaState());
+
 	luaopen_struct(engine->getLuaStack()->getLuaState());
     ScriptEngineManager::getInstance()->setScriptEngine(engine);
     if (engine->executeScriptFile("src/main.lua")) {

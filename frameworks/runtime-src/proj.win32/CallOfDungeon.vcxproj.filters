@@ -10,9 +10,6 @@
     <Filter Include="resource">
       <UniqueIdentifier>{2d1d0979-58cd-4ab6-b91c-13650158f1fa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LuaModule">
-      <UniqueIdentifier>{2b59b9d7-d04d-429a-ac84-b015093770d4}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h">
@@ -22,32 +19,11 @@
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="..\Classes\LuaModule\LuaModule.h">
-      <Filter>LuaModule</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LuaModule\GameLogic.h">
-      <Filter>LuaModule</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Predeclare.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Singleton.h">
       <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LuaModule\StageMap.h">
-      <Filter>LuaModule</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LuaModule\Player.h">
-      <Filter>LuaModule</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LuaModule\PlayerHUD.h">
-      <Filter>LuaModule</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LuaModule\Monster.h">
-      <Filter>LuaModule</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\LuaModule\GameLogin.h">
-      <Filter>LuaModule</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -57,17 +33,8 @@
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\LuaModule\LuaModule.cpp">
-      <Filter>LuaModule</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LuaModule\GameLogic.cpp">
-      <Filter>LuaModule</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\struct.c">
       <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\LuaModule\GameLogin.cpp">
-      <Filter>LuaModule</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,16 +44,5 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\game.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Classes\LuaModule\LuaModule.pkg">
-      <Filter>LuaModule</Filter>
-    </None>
-    <None Include="..\Classes\LuaModule\GameLogic.pkg">
-      <Filter>LuaModule</Filter>
-    </None>
-    <None Include="..\Classes\LuaModule\GameLogin.pkg">
-      <Filter>LuaModule</Filter>
-    </None>
   </ItemGroup>
 </Project>

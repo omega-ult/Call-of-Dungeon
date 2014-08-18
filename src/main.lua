@@ -29,10 +29,10 @@ local function main()
         director:setOpenGLView(glview)
     end
 
-    glview:setDesignResolutionSize(480, 320, cc.ResolutionPolicy.NO_BORDER)
+    glview:setDesignResolutionSize(600, 480, cc.ResolutionPolicy.NO_BORDER)
 
     --turn on display FPS
-    director:setDisplayStats(true)
+    --director:setDisplayStats(true)
 
     --set FPS. the default value is 1.0/60 if you don't call this
     director:setAnimationInterval(1.0 / 60)
@@ -55,7 +55,7 @@ local function main()
     ------------------------------------------------------------------------------------------------------------------------------
 
     ---------------
-
+--[[
     local visibleSize = cc.Director:getInstance():getVisibleSize()
     local origin = cc.Director:getInstance():getVisibleOrigin()
 
@@ -74,12 +74,11 @@ local function main()
         local spriteDog = cc.Sprite:createWithSpriteFrame(frame0)
         spriteDog.isPaused = false
         spriteDog:setPosition(origin.x, origin.y + visibleSize.height / 4 * 3)
---[[
+
         local animFrames = CCArray:create()
 
         animFrames:addObject(frame0)
         animFrames:addObject(frame1)
-]]--
 
         local animation = cc.Animation:createWithSpriteFrames({frame0,frame1}, 0.5)
         local animate = cc.Animate:create(animation);
@@ -180,8 +179,9 @@ local function main()
 
         return layerFarm
     end
+]]--
 
-
+--[[
     -- create menu
     local function createLayerMenu()
         local layerMenu = cc.Layer:create()
@@ -222,7 +222,7 @@ local function main()
 
         return layerMenu
     end
-
+]]
     -- play background music, preload effect
     --[[
     local bgMusicPath = cc.FileUtils:getInstance():fullPathForFilename("background.mp3") 

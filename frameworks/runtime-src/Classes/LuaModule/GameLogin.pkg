@@ -1,7 +1,0 @@
-class GameLogin
-{
-
-cocos2d::Scene*	getScene();
-
-static GameLogin* create();
-};

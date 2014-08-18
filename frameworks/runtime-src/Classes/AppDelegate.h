@@ -2,7 +2,6 @@
 #define __APP_DELEGATE_H__
 
 #include "cocos2d.h"
-#include "Predeclare.h"
 /**
 @brief    The cocos2d Application.
 
@@ -33,8 +32,6 @@ public:
     */
     virtual void applicationWillEnterForeground();
 
-private:
-	GameLogic*	mGameLogic;
 };
 
 #endif  // __APP_DELEGATE_H__
